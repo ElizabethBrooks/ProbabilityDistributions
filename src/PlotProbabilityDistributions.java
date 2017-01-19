@@ -1,6 +1,6 @@
 /*
 	Name: Elizabeth Brooks
-	Last Modified: 11 January 2017
+	Modified: 18 January 2017
 	File: PlotProbabilityDistributions class
 */
 //Imports
@@ -25,10 +25,10 @@ public class PlotProbabilityDistributions extends Application{
    	private static String yAxisTitle;
    	private static int graphSize = 0;
    	//Class fields for writing distribution files
-   	private static String distributionChoice = ""; //Distribution choice of sigmoid (log odds) or gaussian
-   	private static String randomChoice = ""; //Random number quality choice of Random or SecureRandom
+   	private static String distributionChoice = "gaussian"; //Distribution choice of sigmoid (log odds) or gaussian
+   	private static String randomChoice = "random"; //Random number quality choice of Random or SecureRandom
    	private static int numIterations = 0; //Number of iterations of random numbers to be generated
-   	private static String resultsFilePath = ""; //Distribution results file path
+   	private static String resultsFilePath = "results.txt"; //Distribution results file path
 	//The main method used to run the models
 	public static void main(String[]args){
 		//Verify the correct number of arguments have been input     
@@ -70,7 +70,7 @@ public class PlotProbabilityDistributions extends Application{
 					     		System.out.println("Incorrect random choice input, please enter 'random', for low quality, or 'secure', for high quality random numbers.");
 					  	}//End else
 				       	}else{
-					  	System.err.println("Incorrect argument string entered for arg[" + i + "], program exited.");
+					  	System.err.println("Incorrect argument string entered for arg[" + i + "]: " + argStr + ", with value of " + argVal + ". Program exited.");
 					  	System.exit(0); //Do not run the models if incorrect input is recieved
 				       	}//End if else if
 				}//End for
@@ -87,8 +87,8 @@ public class PlotProbabilityDistributions extends Application{
 	}//End main
 	//Method to write randomly distributed gaussian values to a TXT file
    	public static void writeDistributionFile(){
-      		//Initialize variables for writing to file
-      		String aOne;
+      	//Initialize variables for writing to file
+      	String aOne;
 		String bOne;
 		//Catch exceptions and write to file in TXT format
 		try {
@@ -96,9 +96,9 @@ public class PlotProbabilityDistributions extends Application{
          		File distributionFile = new File(resultsFilePath);         
          		//Create distributionFile object file writer
 		        FileWriter fw = new FileWriter(distributionFile.getAbsoluteFile()); 
-			distributionFile.createNewFile();
+			    distributionFile.createNewFile();
          		//Write to file the header
-         		if(randomChoice.equals("random") || randomChoice.equals("")){
+         		if(randomChoice.equals("random")){
             			ProbabilityDistribution distributionObject = new ProbabilityDistribution("random");
             			if(distributionChoice.equals("gaussian")){
                				fw.write("Gaussian Uniform\n");			
