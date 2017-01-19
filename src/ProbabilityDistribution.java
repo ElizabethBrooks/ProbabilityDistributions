@@ -1,6 +1,6 @@
 /*
       Name: Elizabeth Brooks
-   	File: ProbabilityDistribution class
+      File: ProbabilityDistribution class
       Modified: 18 January 2017
 */
 //Imports
