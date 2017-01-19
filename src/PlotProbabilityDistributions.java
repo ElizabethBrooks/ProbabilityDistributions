@@ -115,7 +115,7 @@ public class PlotProbabilityDistributions extends Application{
                				fw.write("Sigmoid Uniform\n");			
       					for(int i=0, k=1;i<numIterations;i++, k++){
 			 			//Write to file "Sigmoid Uniform" random values
-			 			aOne = Double.toString(distributionObject.nextLogOdds());//Transformed random values
+			 			aOne = Double.toString(distributionObject.nextQuantileSigmoid());//Transformed random values
 			 			fw.append(aOne);
 			 			fw.append(" ");
 			 			bOne = Double.toString(distributionObject.getRandomUniformNum());//Uniform random values
@@ -134,7 +134,7 @@ public class PlotProbabilityDistributions extends Application{
 			 			aOne = Double.toString(distributionObject.nextGaussian());//Transformed random values
 			 			fw.append(aOne);
 			 			fw.append(" ");
-			 			bOne = Double.toString(distributionObject.getRandomUniformNum());//Uniform random values
+			 			bOne = Double.toString(k);//y-values?
 			 			fw.append(bOne);
 			 			fw.append("\n");
    	         			}//End for
@@ -142,7 +142,7 @@ public class PlotProbabilityDistributions extends Application{
                				fw.write("Sigmoid Uniform\n");			
       					for(int i=0, k=1;i<numIterations;i++, k++){
 			 			//Write to file "Sigmoid Uniform" random values
-			 			aOne = Double.toString(distributionObject.nextLogOdds());//Transformed random values
+			 			aOne = Double.toString(distributionObject.nextQuantileSigmoid());//Transformed random values
 			 			fw.append(aOne);
 			 			fw.append(" ");
 			 			bOne = Double.toString(distributionObject.getRandomUniformNum());//Uniform random values
@@ -223,5 +223,3 @@ public class PlotProbabilityDistributions extends Application{
 	      stage.show();
    	}//End start
 }//End PlotProbabilityDistributions
-
-
